@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-display);
+
+  /* Colors map to runtime variables so themes can be swapped live. */
+  --color-forest-50: var(--c-50);
+  --color-forest-100: var(--c-100);
+  --color-forest-600: var(--c-600);
+  --color-forest-700: var(--c-700);
+  --color-forest-800: var(--c-800);
+  --color-forest-900: var(--c-900);
+  --color-forest-950: var(--c-950);
+  --color-action: var(--c-accent);
+  --color-action-dark: var(--c-accent-dark);
+  --color-cream: var(--c-cream);
+  --color-sand: var(--c-sand);
+}
+
+/* ---- Themes (the primary ramp + accent + warm neutrals) ---------------- */
+
+[data-theme="pine"] {
+  --c-50: #ecf3ee;  --c-100: #cfe2d6;
+  --c-600: #2d6a4f; --c-700: #1f4d3a; --c-800: #163a2b; --c-900: #102b20; --c-950: #0a1d16;
+  --c-accent: #f0a202; --c-accent-dark: #c98500;
+  --c-cream: #f6f4ee; --c-sand: #efe9dd;
+}
+
+:root,
+[data-theme="steel"] {
+  --c-50: #eef2f6;  --c-100: #d7e0e8;
+  --c-600: #3d5a73; --c-700: #2b4257; --c-800: #1e3142; --c-900: #14222e; --c-950: #0b141c;
+  --c-accent: #f5a524; --c-accent-dark: #cf8412;
+  --c-cream: #f2f4f6; --c-sand: #e6eaee;
+}
+
+[data-theme="clay"] {
+  --c-50: #f5efe9;  --c-100: #e7d8c9;
+  --c-600: #8a5a3c; --c-700: #6d4329; --c-800: #52301c; --c-900: #3a2114; --c-950: #241208;
+  --c-accent: #2a9d8f; --c-accent-dark: #1f7a6f;
+  --c-cream: #f6f1ea; --c-sand: #ece2d4;
+}
+
+[data-theme="midnight"] {
+  --c-50: #eef0f1;  --c-100: #d4d9db;
+  --c-600: #4a5358; --c-700: #333a3e; --c-800: #23282b; --c-900: #15191b; --c-950: #0a0c0d;
+  --c-accent: #e6b54a; --c-accent-dark: #c4972f;
+  --c-cream: #f1f1f0; --c-sand: #e3e3e1;
+}
+
+[data-theme="dusk"] {
+  --c-50: #f4eef0;  --c-100: #e6d2da;
+  --c-600: #7d3a52; --c-700: #5f2940; --c-800: #471d30; --c-900: #311322; --c-950: #1d0b14;
+  --c-accent: #e0a43b; --c-accent-dark: #bd8421;
+  --c-cream: #f5f0f1; --c-sand: #ebe0e3;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: #1c1917;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle topographic contour lines — neutral so they suit any theme. */
+.bg-topo {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='600'%20height='600'%3E%3Cg%20fill='none'%20stroke='%231c1917'%20stroke-opacity='0.05'%20stroke-width='1.5'%3E%3Cpath%20d='M0%2080%20Q150%2040%20300%2080%20T600%2080'/%3E%3Cpath%20d='M0%20200%20Q150%20160%20300%20200%20T600%20200'/%3E%3Cpath%20d='M0%20320%20Q150%20280%20300%20320%20T600%20320'/%3E%3Cpath%20d='M0%20440%20Q150%20400%20300%20440%20T600%20440'/%3E%3Cpath%20d='M0%20560%20Q150%20520%20300%20560%20T600%20560'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 600px 600px;
+}
+
+.bg-topo-dark {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='600'%20height='600'%3E%3Cg%20fill='none'%20stroke='%23ffffff'%20stroke-opacity='0.05'%20stroke-width='1.5'%3E%3Cpath%20d='M0%2080%20Q150%2040%20300%2080%20T600%2080'/%3E%3Cpath%20d='M0%20200%20Q150%20160%20300%20200%20T600%20200'/%3E%3Cpath%20d='M0%20320%20Q150%20280%20300%20320%20T600%20320'/%3E%3Cpath%20d='M0%20440%20Q150%20400%20300%20440%20T600%20440'/%3E%3Cpath%20d='M0%20560%20Q150%20520%20300%20560%20T600%20560'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 600px 600px;
+}
+
+/* Stronger, softer shadow for text sitting over imagery/video. */
+.text-shadow-hero {
+  text-shadow: 0 2px 24px rgba(8, 20, 15, 0.55);
+}
+
+/* Condensed display face for headlines — highway / freight signage feel. */
+.font-display {
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  letter-spacing: 0.01em;
+}
+
+/* Signage-style eyebrow: an amber tab like an escort / route marker. */
+.eyebrow-tab {
+  font-family: var(--font-display), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
