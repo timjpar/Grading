@@ -1,6 +1,5 @@
-// Shared grading content: how a job runs, code requirements for home pads,
-// and the basic price list. Pulled from the Mountain Movers site so the two
-// stay consistent.
+// Shared grading content: how a job runs, code requirements for home sites,
+// and what drives the cost. Pulled from the Mountain Movers grading content.
 
 export const processSteps = [
   {
@@ -74,13 +73,6 @@ export const padRequirements = [
 
 export const limbRule =
   "Tennessee also requires that all tree limbs over the top of the home be removed.";
-
-export const fmt = (n: number) => `$${n.toLocaleString()}`;
-
-export const padPricing = [
-  { title: "Single-Wide Site", noConcrete: 2500, withConcrete: 4500 },
-  { title: "Double-Wide Site", noConcrete: 3500, withConcrete: 6500 },
-];
 
 export const priceFactors = [
   "Rocky soil",

@@ -10,15 +10,14 @@ import { PhoneIcon, MenuIcon, CloseIcon } from "./icons";
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const primary = site.phones[0];
-
+  
   return (
     <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-20 sm:px-6">
         <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
           <Image
             src="/photos/logo.png"
-            alt="Mountain Movers LLC"
+            alt="Mountain Movers Grading"
             width={180}
             height={60}
             priority
@@ -48,11 +47,11 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <a
-            href={telHref(primary.number)}
+            href={telHref(site.phone)}
             className="inline-flex items-center gap-2 rounded-md bg-action px-4 py-2 text-sm font-bold text-stone-900 shadow-sm transition-colors hover:bg-action-dark"
           >
             <PhoneIcon className="h-4 w-4" />
-            <span className="hidden sm:inline">{primary.number}</span>
+            <span className="hidden sm:inline">{site.phone}</span>
             <span className="sm:hidden">Call</span>
           </a>
           <button

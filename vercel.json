@@ -4,5 +4,13 @@
   "buildCommand": "next build",
   "outputDirectory": "out",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.mountainmoversgrading.com" }],
+      "destination": "https://mountainmoversgrading.com/:path*",
+      "permanent": true
+    }
+  ]
 }

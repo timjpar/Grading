@@ -1,19 +1,51 @@
 import type { Metadata } from "next";
-import { site } from "../site";
+import Link from "next/link";
+import { site, telHref } from "../site";
+import { services } from "../services";
+import { breadcrumbJsonLd } from "../seo";
 import { Container, SectionHeading } from "../components/ui";
 import { PageHero } from "../components/PageHero";
+import { JsonLd } from "../components/JsonLd";
 import { CtaBand, EquipmentChips } from "../components/sections";
-import { ShieldIcon, MapPinIcon, CheckIcon, TruckIcon } from "../components/icons";
+import { ShieldIcon, MapPinIcon, CheckIcon } from "../components/icons";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About Our Grading Company",
   description:
-    "Mountain Movers LLC is a family-owned grading and site prep company based in Newport, Tennessee — licensed, bonded, and insured across several states.",
+    "Mountain Movers Grading is a family-owned grading and site prep company based in Newport, Tennessee — licensed, bonded, and insured, with an experienced crew and modern equipment.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
+  const facts: Array<[string, React.ReactNode]> = [
+    ["Business", site.name],
+    ["What we do", "Grading and site prep"],
+    ["Based in", site.base],
+    ["Service area", `${site.states.join(", ")} — often traveling as far as 200 miles`],
+    [
+      "Services",
+      services.map((s, i) => (
+        <span key={s.slug}>
+          {i > 0 && ", "}
+          <Link href={`/services/${s.slug}`} className="text-forest-700 underline hover:text-forest-800">
+            {s.name}
+          </Link>
+        </span>
+      )),
+    ],
+    ["Equipment", site.equipment.join(", ")],
+    ["Credentials", site.credentials.join(", ")],
+    [
+      "Phone",
+      <a key="phone" href={telHref(site.phone)} className="font-bold text-forest-700 underline">
+        {site.phone}
+      </a>,
+    ],
+  ];
+
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "About", path: "/about" }])} />
       <PageHero
         eyebrow="About Us"
         title="A family-owned crew that knows dirt"
@@ -24,9 +56,10 @@ export default function AboutPage() {
         <Container>
           <div className="mx-auto max-w-3xl text-lg leading-relaxed text-stone-700">
             <p>
-              We are a family-owned business based in{" "}
-              <strong className="text-stone-900">Newport, Tennessee</strong>, but
-              often traveling as far as <strong className="text-stone-900">200
+              <strong className="text-stone-900">{site.name}</strong> is a
+              family-owned grading and site prep business based in{" "}
+              <strong className="text-stone-900">Newport, Tennessee</strong>, often
+              traveling as far as <strong className="text-stone-900">200
               miles</strong>. We know our business and everything it takes to get
               the job done safely.
             </p>
@@ -38,8 +71,8 @@ export default function AboutPage() {
             </p>
             <p className="mt-5">
               We are <strong className="text-stone-900">licensed, bonded, and
-              insured</strong> in several states — not just Tennessee — so your
-              property is protected from the first tree down to the final grade.
+              insured</strong>, so your property is protected from the first tree
+              down to the final grade.
             </p>
           </div>
 
@@ -61,37 +94,20 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      {/* Quick facts — plain, quotable answers for people and AI assistants. */}
       <section className="bg-stone-50 py-20">
-        <Container>
-          <SectionHeading
-            eyebrow="Meet the team"
-            title="The people on your site"
-            subtitle="When you call Mountain Movers, you talk to the owners — the same people running the equipment."
-          />
-          <div className="mx-auto mt-12 grid max-w-2xl gap-8 sm:grid-cols-2">
-            {site.team.map((member) => (
-              <figure
-                key={member.name}
-                className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={member.photo}
-                  alt={member.name}
-                  className="aspect-[4/5] w-full object-cover"
-                  loading="lazy"
-                />
-                <figcaption className="p-5 text-center">
-                  <span className="block text-lg font-bold text-stone-900">
-                    {member.name}
-                  </span>
-                  <span className="block text-sm text-forest-600">
-                    {member.role}
-                  </span>
-                </figcaption>
-              </figure>
+        <Container className="max-w-3xl">
+          <h2 className="font-display text-3xl font-bold uppercase tracking-tight text-stone-900">
+            Quick facts
+          </h2>
+          <dl className="mt-6 divide-y divide-stone-200 overflow-hidden rounded-2xl border border-stone-200 bg-white">
+            {facts.map(([label, value]) => (
+              <div key={label} className="grid gap-1 px-5 py-4 sm:grid-cols-[10rem_1fr] sm:gap-4">
+                <dt className="text-sm font-bold uppercase tracking-wider text-stone-500">{label}</dt>
+                <dd className="text-stone-800">{value}</dd>
+              </div>
             ))}
-          </div>
+          </dl>
         </Container>
       </section>
 
@@ -111,28 +127,18 @@ export default function AboutPage() {
               <SectionHeading
                 align="left"
                 eyebrow="Our equipment"
-                title="The right machine for the job"
+                title="Experienced crew, modern equipment"
                 subtitle="Our team has years of hands-on experience with the right machines to get the job done efficiently and precisely — minimizing disruption to your property."
               />
               <div className="mt-6">
                 <EquipmentChips label="" />
-              </div>
-              <div className="mt-8 flex items-start gap-3 rounded-xl border border-stone-200 bg-stone-50 p-4 text-sm text-stone-700">
-                <TruckIcon className="h-5 w-5 flex-none text-forest-600" />
-                <span>
-                  We also move and set mobile homes.{" "}
-                  <a href={site.movingSite} className="font-bold text-forest-700 underline hover:text-forest-800">
-                    Visit our moving &amp; setup site
-                  </a>
-                  .
-                </span>
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-      <CtaBand title="Have a site that needs work?" allPhones />
+      <CtaBand title="Have a site that needs work?" />
     </>
   );
 }

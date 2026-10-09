@@ -6,6 +6,8 @@ import { serviceAreas, serviceAreaBySlug } from "../../serviceAreas";
 import { Container, SectionHeading } from "../../components/ui";
 import { PageHero } from "../../components/PageHero";
 import { CtaBand, ServiceGrid } from "../../components/sections";
+import { JsonLd } from "../../components/JsonLd";
+import { areaServiceJsonLd, breadcrumbJsonLd } from "../../seo";
 import { MapPinIcon } from "../../components/icons";
 
 // Static export: prerender one page per state, nothing on demand.
@@ -24,7 +26,8 @@ export async function generateMetadata({
   const area = serviceAreaBySlug(state);
   if (!area) return {};
   return {
-    title: `Grading & Site Prep in ${area.name}`,
+    title: `Grading & Site Prep Contractor in ${area.name}`,
+    alternates: { canonical: `/service-area/${area.slug}` },
     description: `${site.shortName} clears, grades, and preps sites across ${area.name} — land clearing, fill and compaction, drainage, driveways, and concrete. Licensed, bonded, and insured, based in ${site.base}.`,
   };
 }
@@ -42,9 +45,15 @@ export default async function ServiceAreaPage({
 
   return (
     <>
+      <JsonLd
+        data={[
+          areaServiceJsonLd(area),
+          breadcrumbJsonLd([{ name: `Grading in ${area.name}`, path: `/service-area/${area.slug}` }]),
+        ]}
+      />
       <PageHero
-        eyebrow="Service Area"
-        title={area.name}
+        eyebrow="Grading & Site Prep"
+        title={`Grading in ${area.name}`}
         subtitle={area.tagline}
         image={area.image}
       />
@@ -121,7 +130,6 @@ export default async function ServiceAreaPage({
       <CtaBand
         title={`Prepping a site in ${area.name}?`}
         body="Tell us about the property and we'll walk it and give you a real number."
-        allPhones
       />
     </>
   );

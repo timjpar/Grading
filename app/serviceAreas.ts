@@ -4,6 +4,7 @@
 export type ServiceArea = {
   slug: string;
   name: string;
+  abbr: string;
   tagline: string;
   intro: string;
   cities: string[];
@@ -17,10 +18,11 @@ export const serviceAreas: ServiceArea[] = [
   {
     slug: "tennessee",
     name: "Tennessee",
+    abbr: "TN",
     tagline:
       "Our home state — licensed, bonded, and insured grading and site prep across East Tennessee and beyond.",
     intro:
-      "We're based in Newport, Tennessee, right in the heart of the state we know best. From the Smokies to the Cumberland Plateau, we clear lots, bring in and compact fill, grade pads, cut in driveways, and pour concrete. Tennessee also requires that all tree limbs over the top of a mobile home be removed — we take care of that too.",
+      "We're based in Newport, Tennessee, right in the heart of the state we know best. From the Smokies to the Cumberland Plateau, we clear lots, bring in and compact fill, grade pads, cut in driveways, and pour concrete.",
     cities: [
       "Knoxville",
       "Chattanooga",
@@ -34,6 +36,7 @@ export const serviceAreas: ServiceArea[] = [
   {
     slug: "north-carolina",
     name: "North Carolina",
+    abbr: "NC",
     tagline:
       "A second home base for our crew — grading and site prep across Western North Carolina.",
     intro:
@@ -51,6 +54,7 @@ export const serviceAreas: ServiceArea[] = [
   {
     slug: "virginia",
     name: "Virginia",
+    abbr: "VA",
     tagline:
       "Reaching into Southwest Virginia with clearing, grading, drainage, and concrete.",
     intro:
@@ -61,6 +65,7 @@ export const serviceAreas: ServiceArea[] = [
   {
     slug: "georgia",
     name: "Georgia",
+    abbr: "GA",
     tagline:
       "Serving North Georgia's mountains with clearing, grading, and a compacted pad that won't settle.",
     intro:
@@ -71,6 +76,7 @@ export const serviceAreas: ServiceArea[] = [
   {
     slug: "kentucky",
     name: "Kentucky",
+    abbr: "KY",
     tagline: "Grading and site prep across Southeastern Kentucky.",
     intro:
       "We reach into Southeastern Kentucky with the right equipment for narrow roads and steep hollows — plus the grade work needed to pass inspection and get power turned on.",
@@ -80,6 +86,7 @@ export const serviceAreas: ServiceArea[] = [
   {
     slug: "south-carolina",
     name: "South Carolina",
+    abbr: "SC",
     tagline:
       "Full-service grading and site prep across Upstate South Carolina.",
     intro:

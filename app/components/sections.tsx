@@ -3,6 +3,7 @@ import { site, telHref } from "../site";
 import { services } from "../services";
 import type { Faq } from "../faqs";
 import { Container, Button } from "./ui";
+import { QuoteForm } from "./QuoteForm";
 import { ArrowIcon, PhoneIcon, PlusCircleIcon } from "./icons";
 
 /* ------------------------------------------------------------ CTA band */
@@ -11,14 +12,11 @@ export function CtaBand({
   title = "Ready to break ground?",
   body = "Tell us about your site and we'll come out, walk it, and give you a real number for the work.",
   image,
-  allPhones = false,
 }: {
   title?: string;
   body?: string;
   image?: string;
-  allPhones?: boolean;
 }) {
-  const phones = allPhones ? site.phones : site.phones.slice(0, 1);
   return (
     <section className="relative overflow-hidden bg-forest-900 text-white">
       {image && (
@@ -40,12 +38,57 @@ export function CtaBand({
           <Button href="/contact" withArrow>
             Request a Quote
           </Button>
-          {phones.map((phone) => (
-            <Button key={phone.label} href={telHref(phone.number)} variant="outline">
-              <PhoneIcon className="h-4 w-4" />
-              {allPhones ? `${phone.label}: ${phone.number}` : phone.number}
-            </Button>
-          ))}
+          <Button href={telHref(site.phone)} variant="outline">
+            <PhoneIcon className="h-4 w-4" />
+            Call {site.phone}
+          </Button>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------- Quote section */
+
+export function QuoteSection({
+  title = "Request a quote",
+  subtitle = "Tell us about your property and what you're building. We'll get back to you, come out and walk the site, and give you a real number.",
+}: {
+  title?: string;
+  subtitle?: string;
+}) {
+  return (
+    <section id="quote" className="scroll-mt-20 bg-white py-20">
+      <Container>
+        <div className="grid items-start gap-10 lg:grid-cols-[1fr_1.3fr]">
+          <div>
+            <span className="eyebrow-tab inline-block bg-action px-2.5 py-1 text-xs text-forest-950">
+              Get started
+            </span>
+            <h2 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95] tracking-tight text-stone-900 sm:text-5xl">
+              {title}
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-stone-600">{subtitle}</p>
+            <a
+              href={telHref(site.phone)}
+              className="group mt-8 flex items-center gap-4 rounded-xl border border-stone-200 bg-white p-4 shadow-sm transition-colors hover:border-forest-600/40"
+            >
+              <span className="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-forest-700 text-white">
+                <PhoneIcon className="h-5 w-5" />
+              </span>
+              <span>
+                <span className="block text-xs font-semibold uppercase tracking-wider text-stone-500">
+                  Rather talk? Call
+                </span>
+                <span className="font-display block text-2xl font-bold text-forest-800">
+                  {site.phone}
+                </span>
+              </span>
+            </a>
+          </div>
+          <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6 shadow-sm sm:p-8">
+            <QuoteForm />
+          </div>
         </div>
       </Container>
     </section>

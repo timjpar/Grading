@@ -83,7 +83,7 @@ export const services: Service[] = [
     ],
     goodFor: [
       "Low or soggy building sites",
-      "House and mobile home pads",
+      "House and home site pads",
       "Backfilling around foundations",
       "Leveling yards",
     ],
@@ -130,7 +130,7 @@ export const services: Service[] = [
     intro:
       "Good grading is precise. We shape the ground so your pad is level where it needs to be and sloped where it needs to be — carrying water away from the building instead of under it.",
     body: [
-      "Every state has different rules, but they all require positive drainage: water must run away from the home and not sit under it. For a mobile home, you also want the site reasonably level — usually no more than a 2-foot slope from any end of the home to another.",
+      "Every state has different rules, but they all require positive drainage: water must run away from the home and not sit under it. For a home site, you also want the ground reasonably level — usually no more than a 2-foot slope from any end of the home to another.",
       "Under the home, the ground is crowned if the site is level, or sloped smoothly and consistently to one side if it's on a hill. Around the home, dirt is sloped away from the edge — or a french drain goes in instead.",
     ],
     includes: [
@@ -147,37 +147,6 @@ export const services: Service[] = [
     ],
     callout:
       "Grading is required by code to pass inspection — and you can't get power installed to a home without it.",
-  },
-  {
-    slug: "drainage",
-    name: "Drainage & French Drains",
-    icon: DropIcon,
-    summary:
-      "Positive drainage and french drains that keep water away from what you build.",
-    tagline:
-      "Positive drainage and french drains that keep water moving away from your home.",
-    image: "/photos/setup-piers.jpg",
-    imageAlt: "A home on a hillside site sloped for drainage, with vapor barrier underneath",
-    intro:
-      "Water is the enemy of every foundation. We grade for positive drainage and install french drains so water runs away from your home instead of pooling underneath it.",
-    body: [
-      "Most sites require a french drain. Code generally calls for one of two things: dirt sloped away from the edge of the home out 10 feet with at least a 5-inch fall, or a french drain installed on the exact edge of the home instead.",
-      "A proper french drain is 1 foot wide and 18 inches deep, with drain pipe, filled with gravel, and no dirt on top. We build them to that standard so they pass inspection and keep working.",
-    ],
-    includes: [
-      "Grading for positive drainage",
-      "French drain installation",
-      "Sloping dirt away from the home",
-      "Routing runoff around pads and driveways",
-    ],
-    goodFor: [
-      "Hillside and mountain lots",
-      "Sites where water sits after rain",
-      "Mobile home inspections",
-      "Protecting existing foundations",
-    ],
-    callout:
-      'French drain spec: on the exact edge of the home, 1 ft wide, 18" deep, drain pipe filled with gravel — no dirt on top.',
   },
   {
     slug: "driveways",
@@ -221,7 +190,7 @@ export const services: Service[] = [
     intro:
       "Because we do the dirt work, the concrete goes down on a base we know is right. We pour slabs, footings, patios, sidewalks, and more.",
     body: [
-      "All mobile homes require either dirt or concrete footers. Basic footers can be dug to frostline and set without concrete where that's allowed. Concrete footers are sometimes required, and sometimes requested — they cost extra, and we'll tell you up front which your site needs.",
+      "All homes require either dirt or concrete footers. Basic footers can be dug to frostline and set without concrete where that's allowed. Concrete footers are sometimes required, and sometimes requested — they cost extra, and we'll tell you up front which your site needs.",
       "One crew handling grading and concrete means no finger-pointing between contractors if something isn't right.",
     ],
     includes: [
@@ -236,6 +205,37 @@ export const services: Service[] = [
       "Patios, walkways, and steps",
       "Equipment and HVAC pads",
     ],
+  },
+  {
+    slug: "drainage",
+    name: "Drainage & French Drains",
+    icon: DropIcon,
+    summary:
+      "Positive drainage and french drains that keep water away from what you build.",
+    tagline:
+      "Positive drainage and french drains that keep water moving away from your home.",
+    image: "/photos/setup-piers.jpg",
+    imageAlt: "A home on a hillside site sloped for drainage, with vapor barrier underneath",
+    intro:
+      "Water is the enemy of every foundation. We grade for positive drainage and install french drains so water runs away from your home instead of pooling underneath it.",
+    body: [
+      "Most sites require a french drain. Code generally calls for one of two things: dirt sloped away from the edge of the home out 10 feet with at least a 5-inch fall, or a french drain installed on the exact edge of the home instead.",
+      "A proper french drain is 1 foot wide and 18 inches deep, with drain pipe, filled with gravel, and no dirt on top. We build them to that standard so they pass inspection and keep working.",
+    ],
+    includes: [
+      "Grading for positive drainage",
+      "French drain installation",
+      "Sloping dirt away from the home",
+      "Routing runoff around pads and driveways",
+    ],
+    goodFor: [
+      "Hillside and mountain lots",
+      "Sites where water sits after rain",
+      "Home site inspections",
+      "Protecting existing foundations",
+    ],
+    callout:
+      'French drain spec: on the exact edge of the home, 1 ft wide, 18" deep, drain pipe filled with gravel — no dirt on top.',
   },
 ];
 

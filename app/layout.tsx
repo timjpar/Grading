@@ -3,9 +3,11 @@ import { Geist, Oswald } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { site } from "./site";
+import { businessJsonLd, websiteJsonLd } from "./seo";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { ThemePicker } from "./components/ThemePicker";
+import { JsonLd } from "./components/JsonLd";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,37 +22,52 @@ const oswald = Oswald({
   weight: ["500", "600", "700"],
 });
 
-// Vercel exposes the production domain at build time; used to make OG image
-// URLs absolute. Falls back to localhost for local builds.
-const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
-  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : "http://localhost:3000";
+const description =
+  "Grading and site prep contractor in Newport, TN. Land clearing, fill dirt and compaction, precision grading and leveling, french drains, driveways, and concrete. Call 423-608-5805 for a quote.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(site.url),
   title: {
-    default:
-      "Grading, Land Clearing & Site Prep in TN, NC, VA, GA, KY & SC | Mountain Movers LLC",
+    default: "Grading & Site Prep Contractor in Newport, TN | Mountain Movers Grading",
     template: "%s | Mountain Movers Grading",
   },
-  description:
-    "Family-owned grading and site prep based in Newport, Tennessee. Land clearing, fill and compaction, precision grading, french drains, driveways, and concrete. Licensed, bonded, and insured across six states.",
+  description,
+  applicationName: site.name,
   keywords: [
     "grading contractor",
-    "land clearing",
+    "grading company near me",
     "site prep",
-    "mobile home pad grading",
+    "site preparation",
+    "land clearing",
+    "lot clearing",
+    "dirt work",
+    "fill dirt",
+    "soil compaction",
+    "land grading",
+    "lot grading",
+    "building pad grading",
+    "house pad",
     "french drain installation",
-    "driveway construction",
-    "Newport Tennessee grading",
+    "drainage grading",
+    "driveway grading",
+    "gravel driveway",
+    "concrete slab",
+    "concrete footings",
+    "grading Newport TN",
+    "grading East Tennessee",
   ],
+  alternates: { canonical: "/" },
   openGraph: {
-    title: site.brand,
-    description:
-      "Family-owned, licensed, bonded & insured grading and site prep across Tennessee, North Carolina, Virginia, Georgia, Kentucky, and South Carolina.",
+    title: "Mountain Movers Grading — Grading & Site Prep",
+    description,
+    url: "/",
+    siteName: site.name,
+    locale: "en_US",
     type: "website",
-    images: ["/photos/setup-footers.jpg"],
+    images: [{ url: "/photos/g-dozer.jpg", width: 1400, height: 1050, alt: "Dozer on a freshly graded mountain road" }],
   },
+  twitter: { card: "summary_large_image" },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -71,6 +88,7 @@ export default function RootLayout({
               "(function(){try{var t=localStorage.getItem('mmg-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();",
           }}
         />
+        <JsonLd data={[businessJsonLd(), websiteJsonLd()]} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -1,32 +1,43 @@
 import type { Metadata } from "next";
-import { site } from "../site";
 import { faqs } from "../faqs";
 import {
   padRequirements,
   homeownerChecklist,
-  padPricing,
   priceFactors,
   limbRule,
-  fmt,
 } from "../grading";
-import { Container, SectionHeading, Button } from "../components/ui";
+import { breadcrumbJsonLd } from "../seo";
+import { Container, SectionHeading } from "../components/ui";
 import { PageHero } from "../components/PageHero";
-import { CtaBand, FaqList } from "../components/sections";
-import { CheckIcon, ClipboardIcon, TreeIcon, TruckIcon } from "../components/icons";
+import { JsonLd } from "../components/JsonLd";
+import { CtaBand, FaqList, QuoteSection } from "../components/sections";
+import { CheckIcon, ClipboardIcon, TreeIcon } from "../components/icons";
 
 export const metadata: Metadata = {
-  title: "Mobile Home Site Grading & Prep",
+  title: "Home Site Grading & Building Pad Prep",
   description:
-    "Grading, drainage, french drains, and footers for mobile and modular home sites — built to pass inspection so you can get power installed. Pricing starts at $2,500.",
+    "Home site grading and building pad prep in East Tennessee — positive drainage, level compacted pads, french drains, and footers that pass inspection. For houses, modular, and mobile home sites.",
+  alternates: { canonical: "/home-sites" },
 };
 
-export default function MobileHomePadsPage() {
+const siteTypes = [
+  "Stick-built house pads",
+  "Modular home sites",
+  "Mobile & manufactured home sites",
+  "Garage, shop, and barn pads",
+];
+
+export default function HomeSitesPage() {
+  const siteFaqs = faqs.filter((f) =>
+    /home site|positive drainage|french drain|compacted|footers|before grading|buried lines|mobile or modular/i.test(f.q),
+  );
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Home Sites", path: "/home-sites" }])} />
       <PageHero
-        eyebrow="Mobile & Modular Home Sites"
-        title="Grading that passes inspection"
-        subtitle="Grading is required by code to pass inspection — and it's absolutely required to get power installed to your home. We build the site to the rules, the first time."
+        eyebrow="Home Site Grading"
+        title="A home site that passes inspection"
+        subtitle="Grading is required by code to pass inspection on a home site — and it's required to get power installed. We build the pad to the rules, the first time."
         image="/photos/setup-footers.jpg"
       />
 
@@ -49,19 +60,27 @@ export default function MobileHomePadsPage() {
                 We have a knowledgeable, experienced team, so you don&apos;t have
                 to hire another contractor and hope they don&apos;t mess it up.
               </p>
+              <ul className="grid gap-2 pt-2 sm:grid-cols-2">
+                {siteTypes.map((t) => (
+                  <li key={t} className="flex gap-2 text-base text-stone-700">
+                    <CheckIcon className="mt-1 h-4 w-4 flex-none text-forest-600" />
+                    {t}
+                  </li>
+                ))}
+              </ul>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/photos/grade-gravel-pad.jpg"
-                alt="A single-wide staged on a compacted gravel pad"
+                alt="A compacted gravel building pad on a wooded lot"
                 className="aspect-[4/5] w-full rounded-2xl object-cover shadow-lg"
                 loading="lazy"
               />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/photos/setup-piers.jpg"
-                alt="A home on a hillside site graded and sloped for drainage"
+                alt="A hillside home site graded and sloped for drainage"
                 className="mt-10 aspect-[4/5] w-full rounded-2xl object-cover shadow-lg"
                 loading="lazy"
               />
@@ -75,7 +94,7 @@ export default function MobileHomePadsPage() {
         <Container>
           <SectionHeading
             eyebrow="What the inspector checks"
-            title="What your site needs"
+            title="What your home site needs"
             subtitle="Every state's rules have to be confirmed individually, but these are the grading requirements nearly every home site has to meet."
           />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -134,14 +153,14 @@ export default function MobileHomePadsPage() {
         </Container>
       </section>
 
-      {/* Homeowner responsibilities */}
+      {/* Owner responsibilities */}
       <section className="bg-white py-20">
         <Container>
           <div className="grid items-start gap-12 lg:grid-cols-2">
             <SectionHeading
               align="left"
               eyebrow="Before we dig"
-              title="What's on you as the homeowner"
+              title="What's on you as the owner"
               subtitle="We handle the dirt work. A few things have to be squared away with the county and the property first."
             />
             <ul className="space-y-3">
@@ -159,45 +178,19 @@ export default function MobileHomePadsPage() {
         </Container>
       </section>
 
-      {/* Pricing */}
-      <section id="pricing" className="scroll-mt-20 bg-stone-50 py-20">
+      {/* Cost factors */}
+      <section className="bg-stone-50 py-20">
         <Container>
           <SectionHeading
-            eyebrow="Basic price list"
-            title="A good starting point"
-            subtitle="It's impossible to price every site the same — there are too many variables — but here is a good starting point. Final pricing comes after we walk your site."
+            eyebrow="Cost"
+            title="What drives the price"
+            subtitle="It's impossible to price every site the same — there are too many variables. We walk your site and give you a real number for the work."
           />
-
-          <div className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2">
-            {padPricing.map((p) => (
-              <div
-                key={p.title}
-                className="flex flex-col rounded-2xl border border-stone-200 bg-white p-7 shadow-sm"
-              >
-                <h3 className="text-lg font-bold text-stone-900">{p.title}</h3>
-                <p className="mt-1 text-sm text-stone-500">Grading &amp; prep</p>
-                <div className="mt-5 space-y-3 border-t border-stone-100 pt-5">
-                  <PriceRow label="No concrete" amount={p.noConcrete} />
-                  <PriceRow label="With concrete footers" amount={p.withConcrete} />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <p className="mx-auto mt-6 max-w-4xl text-sm text-stone-500">
-            Basic pricing assumes a relatively easy site with no surprises.
-            Concrete is sometimes required and sometimes requested — it costs
-            extra either way.
-          </p>
-
-          <div className="mx-auto mt-12 max-w-4xl rounded-2xl border border-stone-200 bg-white p-6 sm:p-8">
-            <h3 className="text-lg font-bold text-stone-900">
-              Things that bring the price up
-            </h3>
-            <ul className="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2">
+          <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-stone-200 bg-white p-6 sm:p-8">
+            <ul className="grid gap-x-8 gap-y-2 sm:grid-cols-2">
               {priceFactors.map((p) => (
-                <li key={p} className="flex items-start gap-2 text-sm text-stone-700">
-                  <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-action" />
+                <li key={p} className="flex items-start gap-2 text-stone-700">
+                  <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-action" />
                   {p}
                 </li>
               ))}
@@ -206,64 +199,25 @@ export default function MobileHomePadsPage() {
         </Container>
       </section>
 
-      {/* Moving cross-link */}
-      <section className="bg-white py-16">
-        <Container>
-          <div className="flex flex-col items-start gap-6 rounded-2xl border border-action/40 bg-action/10 p-6 sm:flex-row sm:items-center sm:p-8">
-            <span className="flex h-14 w-14 flex-none items-center justify-center rounded-xl bg-forest-800 text-action">
-              <TruckIcon className="h-7 w-7" />
-            </span>
-            <div className="flex-1">
-              <h2 className="text-xl font-bold text-stone-900">
-                Need the home moved and set, too?
-              </h2>
-              <p className="mt-1 text-stone-700">
-                {site.shortName} also moves single-wides, double-wides, and modular
-                sections — and sets them level, anchored, and ready for
-                inspection. We handle the moving permits and setup inspections.
-              </p>
-            </div>
-            <Button href={site.movingSite} variant="secondary" withArrow>
-              Moving &amp; setup
-            </Button>
-          </div>
-        </Container>
-      </section>
-
       {/* FAQ */}
-      <section className="border-t border-stone-100 bg-white pb-20 pt-4">
+      <section className="bg-white pt-20">
         <Container className="max-w-3xl">
           <h2 className="font-display text-center text-3xl font-bold uppercase tracking-tight text-stone-900">
-            Common questions
+            Home site questions
           </h2>
           <div className="mt-8">
-            <FaqList items={faqs.slice(0, 7)} />
+            <FaqList items={siteFaqs} />
           </div>
         </Container>
       </section>
 
-      <CtaBand
+      <QuoteSection
         title="Get your site inspection-ready"
-        body="Tell us about your lot and your home, and we'll walk the site and give you a real number."
-        image="/photos/setup-field-dusk.jpg"
-        allPhones
+        subtitle="Tell us about your lot and what you're building, and we'll walk the site and give you a real number."
       />
-    </>
-  );
-}
 
-function PriceRow({ label, amount }: { label: string; amount: number }) {
-  return (
-    <div className="flex items-baseline justify-between gap-4">
-      <span className="flex items-center gap-2 text-stone-600">
-        <CheckIcon className="h-4 w-4 text-forest-600" />
-        {label}
-      </span>
-      <span className="text-right">
-        <span className="mr-1 text-xs font-semibold text-stone-500">from</span>
-        <span className="font-display text-3xl font-bold text-forest-800">{fmt(amount)}</span>
-      </span>
-    </div>
+      <CtaBand image="/photos/setup-field-dusk.jpg" />
+    </>
   );
 }
 

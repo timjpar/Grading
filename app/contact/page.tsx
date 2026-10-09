@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
 import { site, telHref } from "../site";
+import { breadcrumbJsonLd } from "../seo";
 import { Container } from "../components/ui";
-import { PhoneIcon, MailIcon, MapPinIcon } from "../components/icons";
+import { PhoneIcon, MapPinIcon } from "../components/icons";
 import { PageHero } from "../components/PageHero";
+import { JsonLd } from "../components/JsonLd";
 import { QuoteForm } from "../components/QuoteForm";
 
 export const metadata: Metadata = {
-  title: "Contact & Quote",
-  description:
-    "Request a grading or site prep quote from Mountain Movers LLC. Call, email, or fill out the form and we'll come walk your site.",
+  title: "Request a Grading Quote",
+  description: `Request a grading or site prep quote from Mountain Movers Grading in Newport, TN. Call ${site.phone} or fill out the form and we'll come walk your site.`,
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Contact", path: "/contact" }])} />
       <PageHero
         eyebrow="Contact Us"
         title="Request a quote"
@@ -27,53 +30,27 @@ export default function ContactPage() {
             {/* Left: info */}
             <div>
               <h2 className="text-2xl font-extrabold tracking-tight text-stone-900">
-                Talk to the people running the equipment
+                Call, or send us your details
               </h2>
               <p className="mt-4 text-stone-600">
-                Call the line for your state, send an email, or use the form —
-                whatever&apos;s easiest. We&apos;re a family-owned business based
-                in {site.base}.
+                Call or fill out the form — whatever&apos;s easiest. We&apos;re a
+                family-owned grading company based in {site.base}.
               </p>
 
               <div className="mt-8 space-y-4">
-                {site.phones.map((phone) => (
-                  <a
-                    key={phone.label}
-                    href={telHref(phone.number)}
-                    className="group flex items-center gap-4 rounded-xl border border-stone-200 bg-white p-4 shadow-sm transition-colors hover:border-forest-600/40"
-                  >
-                    <span className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-forest-50 text-forest-700 transition-colors group-hover:bg-forest-700 group-hover:text-white">
-                      <PhoneIcon className="h-5 w-5" />
-                    </span>
-                    <span>
-                      <span className="block text-xs font-semibold uppercase tracking-wider text-stone-500">
-                        {phone.label}
-                      </span>
-                      <span className="block text-lg font-bold text-forest-800">
-                        {phone.number}
-                      </span>
-                    </span>
-                  </a>
-                ))}
-
                 <a
-                  href={`mailto:${site.email}`}
-                  className="group flex items-center gap-4 rounded-xl border border-stone-200 bg-white p-4 shadow-sm transition-colors hover:border-forest-600/40"
+                  href={telHref(site.phone)}
+                  className="group flex items-center gap-4 rounded-xl border border-stone-200 bg-white p-5 shadow-sm transition-colors hover:border-forest-600/40"
                 >
-                  <span className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-forest-50 text-forest-700 transition-colors group-hover:bg-forest-700 group-hover:text-white">
-                    <MailIcon className="h-5 w-5" />
+                  <span className="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-forest-700 text-white">
+                    <PhoneIcon className="h-5 w-5" />
                   </span>
-                  <span className="min-w-0 flex-1">
+                  <span>
                     <span className="block text-xs font-semibold uppercase tracking-wider text-stone-500">
-                      Email
+                      Call for a quote
                     </span>
-                    <span className="block" style={{ containerType: "inline-size" }}>
-                      <span
-                        className="block whitespace-nowrap font-bold text-forest-800"
-                        style={{ fontSize: "min(1.125rem, 5.5cqi)" }}
-                      >
-                        {site.email}
-                      </span>
+                    <span className="font-display block text-3xl font-bold text-forest-800">
+                      {site.phone}
                     </span>
                   </span>
                 </a>
@@ -117,8 +94,8 @@ export default function ContactPage() {
             <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm sm:p-8">
               <h2 className="text-xl font-bold text-stone-900">Send us your details</h2>
               <p className="mt-2 text-sm text-stone-500">
-                Fields marked required help us give you a faster, more accurate
-                answer.
+                Name and phone are all we need — the rest helps us give you a
+                faster, more accurate answer.
               </p>
               <div className="mt-6">
                 <QuoteForm />

@@ -4,24 +4,21 @@ import { PageHero } from "../components/PageHero";
 import { CtaBand } from "../components/sections";
 
 export const metadata: Metadata = {
-  title: "Gallery",
+  title: "Grading & Land Clearing Photos",
   description:
-    "Real grading, clearing, and site prep work by Mountain Movers LLC across the mountains of Tennessee, North Carolina, and beyond.",
+    "Photos of grading, land clearing, and site prep work by Mountain Movers Grading across East Tennessee, Western North Carolina, and beyond.",
+  alternates: { canonical: "/gallery" },
 };
 
 const photos: { src: string; alt: string }[] = [
   { src: "/photos/setup-footers.jpg", alt: "Graded red-clay site with footers laid out and a dozer on site" },
   { src: "/photos/g-dozer.jpg", alt: "Dozer on a freshly graded gravel mountain road" },
   { src: "/photos/ridge-pad-dusk.jpg", alt: "Cleared ridge-top pad with mountain views at dusk" },
-  { src: "/photos/grade-gravel-pad.jpg", alt: "Compacted gravel pad with a home staged on it" },
-  { src: "/photos/ridge-set-dusk.jpg", alt: "Graded ridge access road with a home arriving" },
-  { src: "/photos/setup-field-dusk.jpg", alt: "Finished dirt pad with a home set at sunset" },
+  { src: "/photos/grade-gravel-pad.jpg", alt: "Compacted gravel building pad on a wooded lot" },
+  { src: "/photos/setup-field-dusk.jpg", alt: "Finished graded dirt pad at sunset" },
   { src: "/photos/lot-wooded.jpg", alt: "Wooded lot before clearing" },
   { src: "/photos/setup-piers.jpg", alt: "Hillside site graded and sloped for drainage" },
-  { src: "/photos/setup-doublewide.jpg", alt: "Double-wide set on a freshly graded site" },
-  { src: "/photos/move-through-trees.jpg", alt: "Home brought through a freshly cleared wooded site" },
-  { src: "/photos/g-skidsteer-set.jpg", alt: "Dirt drive cut in to a home site" },
-  { src: "/photos/g-row-homes.jpg", alt: "Row of homes on graded, seeded sites" },
+  { src: "/photos/setup-doublewide.jpg", alt: "Freshly graded red-clay home site" },
 ];
 
 export default function GalleryPage() {

@@ -4,19 +4,23 @@ import { services } from "../services";
 import { Container, SectionHeading } from "../components/ui";
 import { PageHero } from "../components/PageHero";
 import { CtaBand, EquipmentChips, ServiceGrid } from "../components/sections";
+import { JsonLd } from "../components/JsonLd";
+import { breadcrumbJsonLd } from "../seo";
 import { ArrowIcon, CheckIcon } from "../components/icons";
 
 export const metadata: Metadata = {
   title: "Grading & Site Prep Services",
   description:
-    "Land clearing, dirt import and fill, compacting, precision grading, french drains, driveway construction, and concrete work — everything it takes to get your property ready to build.",
+    "Grading and site prep services in Newport, TN and the surrounding region: land clearing, dirt import and fill, soil compaction, precision leveling and grading, driveway construction, concrete work, and french drains.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Services", path: "/services" }])} />
       <PageHero
-        eyebrow="Services"
+        eyebrow="Grading & Site Prep Services"
         title="We've got you covered"
         subtitle="We handle every aspect of getting your property ready for construction or improvement — from raw land to a solid, build-ready base."
         image="/photos/g-dozer.jpg"

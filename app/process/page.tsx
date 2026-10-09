@@ -3,12 +3,15 @@ import { processSteps, homeownerChecklist } from "../grading";
 import { Container, SectionHeading, Button } from "../components/ui";
 import { PageHero } from "../components/PageHero";
 import { CtaBand, EquipmentChips } from "../components/sections";
+import { JsonLd } from "../components/JsonLd";
+import { breadcrumbJsonLd } from "../seo";
 import { ClipboardIcon } from "../components/icons";
 
 export const metadata: Metadata = {
   title: "Our Grading Process",
   description:
-    "How a grading job runs with Mountain Movers — site walk and quote, land clearing, fill and compaction, grading and drainage, and footers, driveways, and concrete.",
+    "How a grading job runs with Mountain Movers Grading — site walk and quote, land clearing, fill and compaction, grading and drainage, and footers, driveways, and concrete.",
+  alternates: { canonical: "/process" },
 };
 
 const stepImages = [
@@ -23,11 +26,12 @@ const stepImages = [
 export default function ProcessPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Process", path: "/process" }])} />
       <PageHero
         eyebrow="Our Process"
         title="How a grading job works"
         subtitle="Every site is different, but the work follows the same order: walk it, clear it, build it up, grade it, and finish it."
-        image="/photos/ridge-set-dusk.jpg"
+        image="/photos/setup-footers.jpg"
       />
 
       {/* Step nav */}
@@ -87,7 +91,7 @@ export default function ProcessPage() {
                 )}
                 {s.n === "05" && (
                   <div className="mt-6">
-                    <Button href="/mobile-home-pads" variant="secondary" withArrow>
+                    <Button href="/home-sites" variant="secondary" withArrow>
                       Home site requirements
                     </Button>
                   </div>
@@ -120,7 +124,7 @@ export default function ProcessPage() {
         </Container>
       </section>
 
-      <CtaBand allPhones />
+      <CtaBand />
     </>
   );
 }

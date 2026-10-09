@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { site } from "../../site";
+import { site, telHref } from "../../site";
 import { services, serviceBySlug } from "../../services";
 import { Container, Button } from "../../components/ui";
 import { PageHero } from "../../components/PageHero";
 import { CtaBand, EquipmentChips } from "../../components/sections";
-import { CheckIcon, MapPinIcon, ArrowIcon } from "../../components/icons";
+import { JsonLd } from "../../components/JsonLd";
+import { breadcrumbJsonLd, serviceJsonLd } from "../../seo";
+import { CheckIcon, MapPinIcon, ArrowIcon, PhoneIcon } from "../../components/icons";
 
 // Static export: prerender one page per service, nothing on demand.
 export const dynamicParams = false;
@@ -24,8 +26,10 @@ export async function generateMetadata({
   const s = serviceBySlug(slug);
   if (!s) return {};
   return {
-    title: s.name,
-    description: `${s.tagline} ${site.shortName} serves ${site.states.join(", ")}.`,
+    title: `${s.name} in Newport, TN & East Tennessee`,
+    description: `${s.tagline} Mountain Movers Grading — call ${site.phone} for a quote.`,
+    alternates: { canonical: `/services/${s.slug}` },
+    openGraph: { images: [s.image] },
   };
 }
 
@@ -42,7 +46,16 @@ export default async function ServicePage({
 
   return (
     <>
-      <PageHero eyebrow="Services" title={s.name} subtitle={s.tagline} image={s.image} />
+      <JsonLd
+        data={[
+          serviceJsonLd(s),
+          breadcrumbJsonLd([
+            { name: "Services", path: "/services" },
+            { name: s.name, path: `/services/${s.slug}` },
+          ]),
+        ]}
+      />
+      <PageHero eyebrow="Grading & Site Prep" title={s.name} subtitle={s.tagline} image={s.image} />
 
       <section className="bg-white py-20">
         <Container>
@@ -109,9 +122,16 @@ export default async function ServicePage({
                     Request a Quote
                   </Button>
                 </div>
-                <p className="mt-4 flex items-center gap-2 text-xs text-forest-100">
+                <a
+                  href={telHref(site.phone)}
+                  className="mt-4 flex items-center justify-center gap-2 text-sm font-bold text-white hover:text-action"
+                >
+                  <PhoneIcon className="h-4 w-4 text-action" />
+                  Or call {site.phone}
+                </a>
+                <p className="mt-3 flex items-center justify-center gap-2 text-xs text-forest-100">
                   <MapPinIcon className="h-4 w-4 text-action" />
-                  Serving {site.states.length} states from {site.base}
+                  Based in {site.base}
                 </p>
               </div>
             </aside>
@@ -137,17 +157,17 @@ export default async function ServicePage({
               </Link>
             ))}
             <Link
-              href="/mobile-home-pads"
+              href="/home-sites"
               className="inline-flex items-center gap-2 rounded-full bg-action px-5 py-2.5 text-sm font-bold text-stone-900 shadow-sm hover:bg-action-dark"
             >
-              Mobile home sites
+              Home site grading
               <ArrowIcon className="h-4 w-4" />
             </Link>
           </div>
         </Container>
       </section>
 
-      <CtaBand allPhones />
+      <CtaBand />
     </>
   );
 }
