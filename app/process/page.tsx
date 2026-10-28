@@ -15,12 +15,12 @@ export const metadata: Metadata = {
 };
 
 const stepImages = [
-  { src: "/photos/lot-wooded.jpg", alt: "A raw, wooded lot before any site work" },
-  { src: "/photos/g-dozer.jpg", alt: "Walking a mountain site with the dozer on a fresh gravel road" },
-  { src: "/photos/ridge-pad-dusk.jpg", alt: "A ridge-top site freshly cleared of trees and brush" },
-  { src: "/photos/grade-gravel-pad.jpg", alt: "A compacted gravel pad" },
-  { src: "/photos/setup-field-dusk.jpg", alt: "A finished, graded dirt pad with a home set on it" },
-  { src: "/photos/setup-footers.jpg", alt: "Concrete footers laid out on a graded red-clay site" },
+  { src: "/photos/wooded-land.jpg", alt: "Wooded mountain land before any site work" },
+  { src: "/photos/mountain-meadow.jpg", alt: "An open lot with mountain views, ready to be walked" },
+  { src: "/photos/excavator-clearing.jpg", alt: "An excavator clearing brush and small trees from a lot" },
+  { src: "/photos/soil-compactor.jpg", alt: "A soil compactor rolling fill into a firm base" },
+  { src: "/photos/motor-grader.jpg", alt: "A motor grader cutting a finish grade" },
+  { src: "/photos/footings-aerial.jpg", alt: "Aerial view of footings laid out on a graded building site" },
 ];
 
 export default function ProcessPage() {
@@ -31,7 +31,7 @@ export default function ProcessPage() {
         eyebrow="Our Process"
         title="How a grading job works"
         subtitle="Every site is different, but the work follows the same order: walk it, clear it, build it up, grade it, and finish it."
-        image="/photos/setup-footers.jpg"
+        image="/photos/dozer-mountain-site.jpg"
       />
 
       {/* Step nav */}

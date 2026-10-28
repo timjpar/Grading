@@ -23,7 +23,7 @@ export default function ServicesPage() {
         eyebrow="Grading & Site Prep Services"
         title="We've got you covered"
         subtitle="We handle every aspect of getting your property ready for construction or improvement — from raw land to a solid, build-ready base."
-        image="/photos/g-dozer.jpg"
+        image="/photos/motor-grader.jpg"
       />
 
       <section className="bg-cream bg-topo py-20">

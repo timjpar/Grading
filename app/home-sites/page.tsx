@@ -38,7 +38,7 @@ export default function HomeSitesPage() {
         eyebrow="Home Site Grading"
         title="A home site that passes inspection"
         subtitle="Grading is required by code to pass inspection on a home site — and it's required to get power installed. We build the pad to the rules, the first time."
-        image="/photos/setup-footers.jpg"
+        image="/photos/footings-aerial.jpg"
       />
 
       {/* Intro */}
@@ -72,15 +72,15 @@ export default function HomeSitesPage() {
             <div className="grid grid-cols-2 gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/photos/grade-gravel-pad.jpg"
-                alt="A compacted gravel building pad on a wooded lot"
+                src="/photos/soil-compactor.jpg"
+                alt="A soil compactor rolling a graded pad"
                 className="aspect-[4/5] w-full rounded-2xl object-cover shadow-lg"
                 loading="lazy"
               />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/photos/setup-piers.jpg"
-                alt="A hillside home site graded and sloped for drainage"
+                src="/photos/french-drain-trench.jpg"
+                alt="A french drain trench with pipe bedded in gravel"
                 className="mt-10 aspect-[4/5] w-full rounded-2xl object-cover shadow-lg"
                 loading="lazy"
               />
@@ -216,7 +216,7 @@ export default function HomeSitesPage() {
         subtitle="Tell us about your lot and what you're building, and we'll walk the site and give you a real number."
       />
 
-      <CtaBand image="/photos/setup-field-dusk.jpg" />
+      <CtaBand image="/photos/mountain-meadow.jpg" />
     </>
   );
 }

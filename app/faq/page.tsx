@@ -33,7 +33,7 @@ export default function FaqPage() {
         eyebrow="FAQ"
         title="Grading questions, answered"
         subtitle="What a grading contractor does, the rules every site has to meet, what's on you as the owner, and what drives the cost."
-        image="/photos/grade-gravel-pad.jpg"
+        image="/photos/soil-compactor.jpg"
       />
 
       <section className="bg-cream bg-topo py-20">

@@ -49,7 +49,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About Us"
         title="A family-owned crew that knows dirt"
-        image="/photos/ridge-pad-dusk.jpg"
+        image="/photos/smoky-mountains.jpg"
       />
 
       <section className="py-20">
@@ -117,8 +117,8 @@ export default function AboutPage() {
             <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/photos/g-dozer.jpg"
-                alt="Our dozer on a freshly graded mountain road"
+                src="/photos/excavator-clearing.jpg"
+                alt="An excavator clearing brush and small trees from a lot"
                 className="aspect-[4/3] h-full w-full object-cover"
                 loading="lazy"
               />

@@ -33,7 +33,7 @@ export default function Home() {
       <Process />
       <FaqTeaser />
       <ServiceArea />
-      <CtaBand image="/photos/setup-footers.jpg" />
+      <CtaBand image="/photos/footings-aerial.jpg" />
     </>
   );
 }
@@ -45,7 +45,7 @@ function Hero() {
     <section className="relative isolate flex min-h-[85vh] items-end overflow-hidden bg-forest-950 text-white sm:items-center">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/photos/g-dozer.jpg"
+        src="/photos/dozer-graded-pad.jpg"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover"
@@ -147,8 +147,8 @@ function CrewAndEquipment() {
           <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/photos/ridge-pad-dusk.jpg"
-              alt="Mountain Movers Grading crew clearing and grading a ridge-top site with a dozer"
+              src="/photos/dozer-mountain-site.jpg"
+              alt="A dozer grading a red-clay site in the mountains"
               className="aspect-[4/3] h-full w-full object-cover"
               loading="lazy"
             />

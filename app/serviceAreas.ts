@@ -31,7 +31,7 @@ export const serviceAreas: ServiceArea[] = [
       "Morristown",
       "Gatlinburg",
     ],
-    image: "/photos/setup-footers.jpg",
+    image: "/photos/dozer-mountain-site.jpg",
   },
   {
     slug: "north-carolina",
@@ -49,7 +49,7 @@ export const serviceAreas: ServiceArea[] = [
       "Marion",
       "Sylva",
     ],
-    image: "/photos/ridge-pad-dusk.jpg",
+    image: "/photos/smoky-mountains.jpg",
   },
   {
     slug: "virginia",
@@ -60,7 +60,7 @@ export const serviceAreas: ServiceArea[] = [
     intro:
       "We regularly travel into Southwest Virginia for site work. Every county has its own rules — we know how to grade for positive drainage, install french drains, and set footers so your site passes inspection the first time.",
     cities: ["Bristol", "Abingdon", "Wytheville", "Marion", "Galax"],
-    image: "/photos/lot-wooded.jpg",
+    image: "/photos/wooded-land.jpg",
   },
   {
     slug: "georgia",
@@ -71,7 +71,7 @@ export const serviceAreas: ServiceArea[] = [
     intro:
       "From Blue Ridge to Dalton, we build the base your project sits on across North Georgia — clearing, grading, drainage, and a compacted pad that won't settle or shift later.",
     cities: ["Blue Ridge", "Blairsville", "Dalton", "Dahlonega", "Ellijay"],
-    image: "/photos/setup-field-dusk.jpg",
+    image: "/photos/mountain-meadow.jpg",
   },
   {
     slug: "kentucky",
@@ -81,7 +81,7 @@ export const serviceAreas: ServiceArea[] = [
     intro:
       "We reach into Southeastern Kentucky with the right equipment for narrow roads and steep hollows — plus the grade work needed to pass inspection and get power turned on.",
     cities: ["Middlesboro", "Corbin", "London", "Williamsburg", "Barbourville"],
-    image: "/photos/setup-piers.jpg",
+    image: "/photos/dozer-wooded-site.jpg",
   },
   {
     slug: "south-carolina",
@@ -92,7 +92,7 @@ export const serviceAreas: ServiceArea[] = [
     intro:
       "We serve the Upstate — Greenville, Spartanburg, and the surrounding counties — with land clearing, grading, driveways, drainage, and concrete handled by one experienced crew.",
     cities: ["Greenville", "Spartanburg", "Greer", "Seneca", "Gaffney"],
-    image: "/photos/setup-doublewide.jpg",
+    image: "/photos/footings-aerial.jpg",
   },
 ];
 

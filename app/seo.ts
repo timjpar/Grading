@@ -43,7 +43,7 @@ export function businessJsonLd() {
     description: site.description,
     slogan: "From raw land to a solid, build-ready base.",
     telephone: `+1-${site.phone}`,
-    image: absoluteUrl("/photos/g-dozer.jpg"),
+    image: absoluteUrl("/photos/dozer-graded-pad.jpg"),
     logo: absoluteUrl("/photos/logo.png"),
     address: {
       "@type": "PostalAddress",

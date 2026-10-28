@@ -21,7 +21,7 @@ export default function ContactPage() {
         eyebrow="Contact Us"
         title="Request a quote"
         subtitle="Tell us about your property and what you're building. The more detail you give us, the better we can help."
-        image="/photos/setup-footers.jpg"
+        image="/photos/gravel-driveway.jpg"
       />
 
       <section className="py-16 sm:py-20">

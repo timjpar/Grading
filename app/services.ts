@@ -36,8 +36,8 @@ export const services: Service[] = [
       "Remove trees, brush, rocks, and debris so you start with a clean slate.",
     tagline:
       "Trees, brush, rocks, and debris cleared out so your project starts with a clean slate.",
-    image: "/photos/ridge-pad-dusk.jpg",
-    imageAlt: "A freshly cleared ridge-top site with a dozer and a home staged behind it",
+    image: "/photos/land-clearing-dozer.jpg",
+    imageAlt: "A dozer clearing brush and small trees from a wooded lot",
     intro:
       "Every build starts with clearing. We take raw, overgrown land and open it up — removing trees, brush, rocks, and debris — so the grade work can begin on solid, visible ground.",
     body: [
@@ -67,8 +67,8 @@ export const services: Service[] = [
       "Bring in quality material to raise low spots and create proper drainage.",
     tagline:
       "Quality fill brought in to raise low spots, build up pads, and get water moving the right way.",
-    image: "/photos/setup-footers.jpg",
-    imageAlt: "Red clay fill graded around concrete footers with a dozer on site",
+    image: "/photos/fill-dirt-dump-truck.jpg",
+    imageAlt: "A dump truck unloading fill dirt while a dozer spreads it",
     intro:
       "When a site sits too low or slopes the wrong way, the fix is dirt. We import quality material to raise low spots, build up pads, and shape the ground so water runs away from what you're building.",
     body: [
@@ -96,8 +96,8 @@ export const services: Service[] = [
     summary: "Ensure a rock-solid base that won't settle or shift later.",
     tagline:
       "A rock-solid, compacted base that won't settle or shift after your home or slab goes on it.",
-    image: "/photos/grade-gravel-pad.jpg",
-    imageAlt: "A compacted gravel pad with a single-wide home staged on it",
+    image: "/photos/soil-compactor.jpg",
+    imageAlt: "A smooth-drum soil compactor rolling a graded dirt base",
     intro:
       "The ground under your project has to hold its shape for decades. Compaction is what makes that happen — without it, even a perfectly graded pad can settle, crack, or shift.",
     body: [
@@ -125,8 +125,8 @@ export const services: Service[] = [
       "Achieve perfectly flat, properly sloped pads for foundations, slabs, or yards.",
     tagline:
       "Flat, properly sloped pads for foundations, slabs, and yards — with drainage built in.",
-    image: "/photos/setup-field-dusk.jpg",
-    imageAlt: "A freshly graded dirt pad with a home set on it at sunset",
+    image: "/photos/dozer-graded-pad.jpg",
+    imageAlt: "A dozer leveling a freshly graded building pad",
     intro:
       "Good grading is precise. We shape the ground so your pad is level where it needs to be and sloped where it needs to be — carrying water away from the building instead of under it.",
     body: [
@@ -156,8 +156,8 @@ export const services: Service[] = [
       "Cut in new driveways, add gravel, or prepare surfaces for asphalt or concrete.",
     tagline:
       "New driveways cut in, graveled, or prepped for asphalt or concrete — built to handle the traffic.",
-    image: "/photos/g-dozer.jpg",
-    imageAlt: "A dozer on a freshly graded gravel mountain driveway",
+    image: "/photos/gravel-driveway.jpg",
+    imageAlt: "A new gravel driveway cut through a wooded lot",
     intro:
       "A driveway is only as good as what's under it. We cut in new drives, build them up with a compacted base, and add gravel — or prep the surface for asphalt or concrete.",
     body: [
@@ -185,8 +185,8 @@ export const services: Service[] = [
       "Professional pouring for slabs, footings, patios, sidewalks, and more.",
     tagline:
       "Slabs, footings, patios, sidewalks, and more — poured on a base we prepped ourselves.",
-    image: "/photos/setup-footers.jpg",
-    imageAlt: "Concrete footers laid out on a graded pad",
+    image: "/photos/concrete-pour.jpg",
+    imageAlt: "Leveling a freshly poured concrete slab with a power screed",
     intro:
       "Because we do the dirt work, the concrete goes down on a base we know is right. We pour slabs, footings, patios, sidewalks, and more.",
     body: [
@@ -214,8 +214,8 @@ export const services: Service[] = [
       "Positive drainage and french drains that keep water away from what you build.",
     tagline:
       "Positive drainage and french drains that keep water moving away from your home.",
-    image: "/photos/setup-piers.jpg",
-    imageAlt: "A home on a hillside site sloped for drainage, with vapor barrier underneath",
+    image: "/photos/french-drain-trench.jpg",
+    imageAlt: "Drain pipe bedded in gravel in an open drainage trench",
     intro:
       "Water is the enemy of every foundation. We grade for positive drainage and install french drains so water runs away from your home instead of pooling underneath it.",
     body: [

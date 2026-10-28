@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_US",
     type: "website",
-    images: [{ url: "/photos/g-dozer.jpg", width: 1400, height: 1050, alt: "Dozer on a freshly graded mountain road" }],
+    images: [{ url: "/photos/dozer-graded-pad.jpg", width: 1600, height: 1060, alt: "A dozer on a freshly graded building pad" }],
   },
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
